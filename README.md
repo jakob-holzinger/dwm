@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Luke's build of dwm
 
 ## FAQ
@@ -34,3 +35,7 @@ sudo make install
 ## Please install `libxft-bgra`!
 
 This build of dwm does not block color emoji in the status/info bar, so you must install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) from the AUR, which fixes a libxft color emoji rendering problem, otherwise dwm will crash upon trying to render one. Hopefully this fix will be in all libxft soon enough.
+=======
+# dwm
+My build for dwm - dynamic window manager 
+>>>>>>> 3f82f49da39e0e08b96ab97f995ee3a09cdffec6
