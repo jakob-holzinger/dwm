@@ -105,7 +105,7 @@ static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *upvol[]   = { "pulsemixer", "--change-volume", "+10", NULL };
 static const char *downvol[] = { "pulsemixer", "--change-volume", "-10", NULL };
 static const char *mutevol[] = { "pulsemixer", "--toggle-mute", NULL};
-static const char *webcmd[] = { "librewolf", NULL };
+static const char *webcmd[] = { "opera", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *scrscmd[] = { "screenshot", NULL };
 
@@ -175,8 +175,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("sysact") },
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
-	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
-	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
+	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e nemo") },
 	{ MODKEY,			XK_r,		spawn,		SHCMD(TERMINAL " -e lfub") },
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		SHCMD(TERMINAL " -e htop") },
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
