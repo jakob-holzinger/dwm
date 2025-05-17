@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -20,6 +21,8 @@ static const char *colors[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+#include "shiftview.c"
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -60,7 +63,6 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-#include "shiftview.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_s,      spawn,          {.v = dmenucmd } },
@@ -89,6 +91,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Left,   shiftview,      { .i = -1 } },
 	{ MODKEY,                       XK_Right,  shiftview,      { .i = +1 } },
 	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("/home/jakob/.config/dwm/powermenu.sh") },
+	{ 0, 							XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -i 5") },
+    { 0, 							XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -d 5") },
+	{ 0,							XF86XK_AudioMute,        spawn, SHCMD("pamixer -t") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
