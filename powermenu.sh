@@ -1,10 +1,10 @@
 #!/bin/bash
 
-choice=$(printf "Sperren\nAbmelden\nNeustarten\nHerunterfahren" | dmenu -i -p "System:")
+choice=$(printf "Lock\nLogOut\nRestart\nShutdown" | dmenu -i -p "System:")
 
 case "$choice" in
   Lock) slock ;;
-  Log Out) pkill -KILL -u "$USER" ;;
+  LogOut) pkill -KILL -u "$USER" ;;
   Restart) systemctl reboot ;;
   Shutdown) systemctl poweroff ;;
 esac
