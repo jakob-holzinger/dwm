@@ -67,8 +67,7 @@ static const char *dmenucmd[] = {"dmenu_run", "-m",   dmenumon, "-fn",    dmenuf
                                  "-nb",       col_bg, "-nf",    col_gray, "-sb",
                                  col_border,  "-sf",  col_fg,   NULL};
 static const char *termcmd[] = {"st", NULL};
-static const char *snipcmd[] = {"sh", "-c", "maim -s ~/pictures/screenshots/$(date +%F_%T).png",
-                                NULL};
+static const char *snipcmd[] = { "sh", "-c", "FILE=~/pictures/screenshots/$(date +%F_%T).png; maim -s \"$FILE\" && xclip -selection clipboard -t image/png -i < \"$FILE\"", NULL };
 static const char *filemgrcmd[] = {"thunar", NULL};
 
 static const Key keys[] = {
