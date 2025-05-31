@@ -67,8 +67,13 @@ static const char *dmenucmd[] = {"dmenu_run", "-m",   dmenumon, "-fn",    dmenuf
                                  "-nb",       col_bg, "-nf",    col_gray, "-sb",
                                  col_border,  "-sf",  col_fg,   NULL};
 static const char *termcmd[] = {"st", NULL};
-static const char *snipcmd[] = { "sh", "-c", "FILE=~/pictures/screenshots/$(date +%F_%T).png; maim -s \"$FILE\" && xclip -selection clipboard -t image/png -i < \"$FILE\"", NULL };
+static const char *snipcmd[] = {"sh", "-c",
+                                "FILE=~/pictures/screenshots/$(date +%F_%T).png; maim -s \"$FILE\" "
+                                "&& xclip -selection clipboard -t image/png -i < \"$FILE\"",
+                                NULL};
 static const char *filemgrcmd[] = {"thunar", NULL};
+static const char *brightnessupcmd[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -103,6 +108,8 @@ static const Key keys[] = {
     {0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -i 5")},
     {0, XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -d 5")},
     {0, XF86XK_AudioMute, spawn, SHCMD("pamixer -t")},
+    { 0, XF86XK_MonBrightnessUp,   spawn, {.v = brightnessupcmd } },
+    { 0, XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3) TAGKEYS(XK_5, 4)
         TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_q, quit, {0}},
